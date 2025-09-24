@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ هدية الى حبيبتي</title>
+    <style>
+        /* التصميم العام */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* الترويسة */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        header h1 {
+            color: #e84393;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* الأقسام الرئيسية */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            margin: 2rem auto;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            color: #e84393;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #636e72;
+        }
+        
+        /* عداد الوقت */
+        .counter {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .time-unit {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .time-unit .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e84393;
+        }
+        
+        .time-unit .label {
+            font-size: 1rem;
+            color: #636e72;
+            margin-top: 0.5rem;
+        }
+        
+        /* معرض الصور */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 300px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        /* رسالة الحب */
+        .love-letter {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+            position: relative;
+        }
+        
+        .love-letter h3 {
+            color: #e84393;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .love-letter p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #2d3436;
+        }
+        
+        .love-letter::before {
+            content: '"';
+            font-size: 6rem;
+            color: rgba(232, 67, 147, 0.1);
+            position: absolute;
+            top: -1rem;
+            right: 2rem;
+            font-family: Georgia, serif;
+        }
+        
+        /* الفوتر */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            color: #636e72;
+        }
+        
+        /* تأثيرات القلوب */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(232, 67, 147, 0.5);
+            animation: float 6s ease-in infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .counter {
+                gap: 1rem;
+            }
+            
+            .time-unit {
+                min-width: 90px;
+                padding: 1rem;
+            }
+            
+            .time-unit .number {
+                font-size: 2rem;
+            }
+            
+            .love-letter {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>٤ شهور من الحكاية الحلوة ❤️</h1>
+    </header>
+    
+    <section class="hero">
+        <h2>اجمل 4 شهور في حياتي🤗✨</h2>
+        <p>وجودك جنبي كل يوم هو أحلى هدية من ربنا وكل لحظة بنعيشها مع بعض بتسوى عندي سنين قدام</p>
+        
+        <div class="counter">
+            <div class="time-unit">
+                <div class="number" id="months">4</div>
+                <div class="label">أشهر</div>
+            </div>
+            <div class="time-unit">
+                <div class="number" id="days">0</div>
+                <div class="label">أيام</div>
+            </div>
+            <div class="time-unit">
+                <div class="number" id="hours">0</div>
+                <div class="label">ساعات</div>
+            </div>
+            <div class="time-unit">
+                <div class="number" id="minutes">0</div>
+                <div class="label">دقائق</div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h2 style="text-align: center; color: #e84393; margin-bottom: 2rem;">ذكرياتنا الجميلة</h2>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/photo1.jpg" alt="اول قاعدة لينا سوا فكراها😍">
+                <div class="gallery-caption">اول قاعدة لينا سوا فكراها😍</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo9.jpg" alt="اول هدايا تجيبهالي😍">
+                <div class="gallery-caption">اول هدايا تجيبهالي😍</div>
+            </div>
+            <div class="gallery-item">
+                <!-- استبدال الصورة بفيديو هنا -->
+                <video src="images/Video1.mp4" controls poster="" style="width: 100%; height: 100%; object-fit: cover;">
+                    متصفحك لا يدعم تشغيل الفيديو. يرجى تحديثه أو استخدام متصفح آخر.
+                </video>
+                <div class="gallery-caption">اول مرة ناكل سوا😋</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo2.jpg" alt="اول مرة قولتيلي بحبك❤️✨">
+                <div class="gallery-caption">اول مرة قولتيلي بحبك❤️✨</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo3.jpg" alt="اول خروجة لينا في ماك💕✨">
+                <div class="gallery-caption">اول خروجة لينا في ماك💕✨</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo4.jpg" alt="اول يوم نذاكر سوا">
+                <div class="gallery-caption">اول يوم نذاكر سوا ليلة امتحان ال CCNA فاكرة و اول حضن 😉</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo5.jpg" alt="اول دخول سينما سوا">
+                <div class="gallery-caption">اول دخول سينما سوا و كان يوم فرحتي فيه لا توصف😊✨</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo6.jpg" alt="يوم قراية الفاتحة🥹">
+                <div class="gallery-caption">يوم قراية الفاتحة🥹</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo7.jpg" alt="اول مرة اجي معاكي مطوبس لواحدي😁">
+                <div class="gallery-caption">اول مرة اجي معاكي مطوبس لواحدي😁</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo8.jpg" alt="يوم الخطوبة💍❤️">
+                <div class="gallery-caption">يوم الخطوبة💍❤️</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo10.jpg" alt="يوم تخرجنا🥹">
+                <div class="gallery-caption">يوم تخرجنا🥹❤️</div>
+            </div>
+            <div class="gallery-item">
+                <!-- استبدال الصورة بفيديو هنا -->
+                <video src="images/Video2.mp4" controls poster="" style="width: 100%; height: 100%; object-fit: cover;">
+                    متصفحك لا يدعم تشغيل الفيديو. يرجى تحديثه أو استخدام متصفح آخر.
+                </video>
+                <div class="gallery-caption">اول زيارة ليا في بيت الاسكندرية و ثاني هدية منك 🤗✨</div>
+            </div>
+
+        </div>
+        
+        <div class="love-letter">
+            <h3>رسالتي إليك</h3>
+            <p>حبيبتي و خطيبتي الغالية 💍❤️</p>
+            <p>النهاردة بالنسبة ليا يوم مميز جدا لأننا مش بس بنحتفل بمرور ٤ شهور على حبنا اللي بدأ من يوم 31/05 لكن كمان ده أول شهر لينا وإحنا مخطوبين رسميًا
+٤ شهور كان فيهم فرحة حنية و مشاكل و حليناها سوا وذكريات عمرها ما هتتنسي ومع الخطوبة زاد إحساسي إني لقيت نصي التاني اللي هدخل معاه على حياة جديدة كلها خير وحب وسعادة.</p>
+            <p>وجودك جنبي كل يوم بيأكدلي إن ربنا رزقني بأجمل حاجة في حياتي وإن الأيام اللي جاية معاك هتكون أحلى وأجمل من اللي فاتت
+أنا مبسوط إنك بقيتي مش بس حبيبتي لكن كمان خطيبتي و انشاء الله ربنا يقدرني و تبقي مراتي اللي هشوف معاها مستقبل مليان أمل وحب ما بينتهيش.</p>
+            <p>نهاية الكلام عايز اقولك اني بحبك حب مفيش حاجة تقدر توصفه و دي حاجة بسيطة ليكي متوفيش حبك في قلبي عايز اقولك اني هفضل ديما جمبك و ظهرك و سند ليكي و عمري م هسيبك تواجهي حاجة لواحدك بحبك يا احسن حاجة ظهرت في حياتي.</p>
+        </div>
+    </section>
+        
+    <div class="hearts" id="hearts-container"></div>
+
+    <script>
+        // إنشاء تأثير القلوب الطائفة
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartCount = 30;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // مواقع وأحجام عشوائية
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+                heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // تفعيل تأثيرات عند التمرير
+        function initScrollEffects() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach((item, index) => {
+                // تأخير ظهور الصور عند التمرير
+                item.style.animationDelay = (index * 0.2) + 's';
+            });
+        }
+        
+        // تفعيل كل التأثيرات عند تحميل الصفحة
+        window.addEventListener('load', function() {
+            createHearts();
+            initScrollEffects();
+        });
+    </script>
+</body>
+</html>
